@@ -82,15 +82,7 @@ The project follows this directory structure:
 - `requirements.txt`: Lists all dependencies required for the project  
 
 ## Usage
-
 Run the Gradio app with:
-
-```bash
+```
 python experiment4.py
-
-## Usage
-
-  Run the Gradio app with:
-  ```bash
-  python experiment4.py
 ```
