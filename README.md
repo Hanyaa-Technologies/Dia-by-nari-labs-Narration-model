@@ -53,6 +53,32 @@ This tool builds on Nari Labs' Dia text-to-speech model, a 1.6B-parameter open-s
       This installs PyTorch, Transformers, Gradio, SoundFile, scipy, NLTK, and other required libraries.
 
   5. **NLTK data**: Ensure NLTK's Punkt tokenizer is available. The script will auto-download it if missing.
+     
+  6. **Directory Structure**
+     The project follows this directory structure:
+     ```
+      .
+      ├── dia/
+      ├── docker/
+      ├── example/
+      ├── .gitignore
+      ├── .python-version
+      ├── LICENSE
+      ├── README.md
+      ├── cli.py
+      ├── example_prompt.mp3
+      ├── experiment.py
+      ├── experiment2.py
+      ├── experiment3.py
+      ├── experiment4.py
+      ├── horizontal.png
+      ├── pyproject.toml
+      ├── test.py
+      └── uv.lock
+     ```
+     ---
+experiment4.py: The main script to run the Gradio app.
+requirements.txt: Lists all dependencies required for the project.
 
 ## Usage
 
