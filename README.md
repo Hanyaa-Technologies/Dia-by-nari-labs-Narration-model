@@ -3,7 +3,7 @@
 
 ## Project Overview
 
-This tool builds on Nari Labs' Dia text-to-speech model, a 1.6B-parameter open-source TTS model [^1]. Dia generates highly realistic multi-speaker dialogue from transcripts and can be conditioned on example audio to control voice and tone [^2]. The Gradio interface here lets users enter narration scripts (using `[S1]` / `[S2]` tags for speakers) and optional reference audio prompts. The input text is automatically tokenized and split into manageable chunks, and the resulting audio segments are chained together for smooth, continuous output.
+This tool builds on Nari Labs' Dia text-to-speech model, a 1.6B-parameter open-source TTS model. Dia generates highly realistic multi-speaker dialogue from transcripts and can be conditioned on example audio to control voice and tone. The Gradio interface here lets users enter narration scripts (using `[S1]` / `[S2]` tags for speakers) and optional reference audio prompts. The input text is automatically tokenized and split into manageable chunks, and the resulting audio segments are chained together for smooth, continuous output.
 
 ## Key Features
 
@@ -16,45 +16,46 @@ This tool builds on Nari Labs' Dia text-to-speech model, a 1.6B-parameter open-s
 ## Installation
 
   1. **Clone the Repository**
-  
-  ```bash
-  git clone https://github.com/Hanyaa-Technologies/Dia-by-nari-labs-Narration-model.git
-  cd Text-To-Speech
-  ```
+
+       ```bash
+       git clone https://github.com/Hanyaa-Technologies/Dia-by-nari-labs-Narration-model.git
+       cd Text-To-Speech
+     ```
   
   2. **Set Up a Virtual Environment**
   
-  Choose one of the following methods:
-  
-  #### 👉 Using `venv` + `pip`
-  
-  ```bash
-  python -m venv venv
-  source venv/bin/activate        # Linux/macOS
-  venv\Scripts\activate           # Windows
-  
-  pip install -r requirements.txt
-  ```
-  
-  #### 👉 Using `conda`
-  
-  ```bash
-  conda create -n env_name python=3.10 -y
-  conda activate env_name
-  
-  pip install -r requirements.txt
-  ```
+      Choose one of the following methods:
+      
+      #### 👉 Using `venv` + `pip`
+      
+     ```bash
+      python -m venv venv
+      source venv/bin/activate        # Linux/macOS
+      venv\Scripts\activate           # Windows
+      
+      pip install -r requirements.txt
+      ```
+      
+      #### 👉 Using `conda`
+      
+      ```bash
+      conda create -n env_name python=3.10 -y
+      conda activate env_name
+      
+      pip install -r requirements.txt
+      ```
 
-2.  **Install dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
-    This installs PyTorch, Transformers, Gradio, SoundFile, scipy, NLTK, and other required libraries.
+  3. **Install dependencies:**
+     
+      ```bash
+      pip install -r requirements.txt
+      ```
+      This installs PyTorch, Transformers, Gradio, SoundFile, scipy, NLTK, and other required libraries.
 
-3.  **NLTK data**: Ensure NLTK's Punkt tokenizer is available. The script will auto-download it if missing.
+  5. **NLTK data**: Ensure NLTK's Punkt tokenizer is available. The script will auto-download it if missing.
 
 ## Usage
 
 Run the Gradio app with:
 ```bash
-python experiment4.py --share
+python experiment4.py
