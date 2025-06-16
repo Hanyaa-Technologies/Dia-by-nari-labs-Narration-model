@@ -56,6 +56,7 @@ This tool builds on Nari Labs' Dia text-to-speech model, a 1.6B-parameter open-s
 
 ## Usage
 
-Run the Gradio app with:
-```bash
-python experiment4.py
+  Run the Gradio app with:
+  ```bash
+  python experiment4.py
+```
