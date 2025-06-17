@@ -104,6 +104,7 @@ pip install -r requirements.txt
 ```bash
 python experiment4.py
 ```
+Video link - https://1drv.ms/v/c/0fd555f519abe747/ET5IMBLdwqREjsFnXe-PBnQBc9IqTXnaH2qsZxcpzvSjNg?e=SQyRQN
 
 🎉 **That's it!** Your Gradio interface will open automatically in your default browser.
 
