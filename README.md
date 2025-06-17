@@ -1,88 +1,241 @@
-# Dia-by-nari-labs-Narration-model  
-# Narration Synthesis (Dia-based TTS)
+# 🎙️ Dia Narration Model
+### *Advanced Text-to-Speech with Multi-Speaker Dialogue*
 
-## Project Overview
+[![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://python.org)
+[![PyTorch](https://img.shields.io/badge/PyTorch-Latest-red.svg)](https://pytorch.org)
+[![Gradio](https://img.shields.io/badge/Gradio-Interactive-orange.svg)](https://gradio.app)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-This tool builds on Nari Labs' Dia text-to-speech model, a 1.6B-parameter open-source TTS model. Dia generates highly realistic multi-speaker dialogue from transcripts and can be conditioned on example audio to control voice and tone. The Gradio interface here lets users enter narration scripts (using `[S1]` / `[S2]` tags for speakers) and optional reference audio prompts. The input text is automatically tokenized and split into manageable chunks, and the resulting audio segments are chained together for smooth, continuous output.
+---
 
-## Key Features
+## 🌟 Overview
 
-* **Tokenization**: Splits input into sentences (using NLTK) and counts tokens with a GPT-2 tokenizer to guide chunk sizes.
-* **Dynamic Chunking**: Groups sentences into chunks of ~64 tokens (adaptive to text length). Very short texts (≤80 tokens) are processed as a single chunk to avoid over-splitting.
-* **Audio Chaining**: Ensures continuity by feeding the last ~2.5 seconds of each audio chunk as a prompt into the next chunk's generation.
-* **Audio Prompt / Voice Cloning**: Supports an optional audio file (plus its transcript) to guide voice style and emotion. This leverages Dia's ability to condition on example audio [^2].
-* **Interactive UI**: A custom Gradio app with fields for text input, audio prompt, random seed, and sliders (CFG scale, temperature, top-p, etc.) for fine-tuning. Users click **Generate Audio** to synthesize speech.
+**Dia Narration Model** is a cutting-edge text-to-speech synthesis tool built on Nari Labs' powerful **Dia TTS model** — a 1.6B parameter open-source neural network that generates incredibly realistic multi-speaker dialogue. Transform your scripts into natural-sounding audio with advanced voice conditioning and seamless speaker transitions.
 
-## Installation
+### ✨ What Makes It Special?
 
-1. **Clone the Repository**
+- 🎭 **Multi-Speaker Support** — Natural dialogue with distinct voices
+- 🎨 **Voice Cloning** — Condition on reference audio for custom voices  
+- 🧠 **Smart Chunking** — Intelligent text processing for long narrations
+- 🔗 **Seamless Audio Chaining** — Continuous output without breaks
+- 🎛️ **Fine-Tuned Control** — Adjustable parameters for perfect results
 
-    ```bash
-    git clone https://github.com/Hanyaa-Technologies/Dia-by-nari-labs-Narration-model.git
-    cd Text-To-Speech
-    ```
+---
 
-2. **Set Up a Virtual Environment**
+## 🚀 Key Features
 
-    Choose one of the following methods:
+### 🔤 **Advanced Tokenization**
+- Intelligent sentence splitting using NLTK
+- GPT-2 tokenizer for precise chunk sizing
+- Optimized processing for any text length
 
-    #### 👉 Using `venv` + `pip`
+### 📊 **Dynamic Chunking System**
+- Adaptive ~64 token chunks for optimal processing
+- Smart handling of short texts (≤80 tokens)
+- Prevents over-splitting while maintaining quality
 
-    ```bash
-    python -m venv venv
-    source venv/bin/activate        # Linux/macOS
-    venv\Scripts\activate           # Windows
-    
-    pip install -r requirements.txt
-    ```
+### 🎵 **Seamless Audio Chaining**
+- Smooth transitions between audio segments
+- 2.5-second overlap for natural continuity
+- No awkward pauses or breaks
 
-    #### 👉 Using `conda**
+### 🎤 **Voice Conditioning & Cloning**
+- Upload reference audio for voice matching
+- Emotion and tone preservation
+- Advanced conditioning capabilities
 
-    ```bash
-    conda create -n env_name python=3.10 -y
-    conda activate env_name
-    
-    pip install -r requirements.txt
-    ```
+### 🖥️ **Interactive Gradio Interface**
+- User-friendly web interface
+- Real-time parameter adjustment
+- Professional audio controls
 
-3. **Install dependencies:**
+---
 
-    ```bash
-    pip install -r requirements.txt
-    ```
-    This installs PyTorch, Transformers, Gradio, SoundFile, scipy, NLTK, and other required libraries.
+## 📋 Prerequisites
 
-4. **NLTK data**: Ensure NLTK's Punkt tokenizer is available. The script will auto-download it if missing.
+Before getting started, ensure you have:
 
-## Directory Structure
+- **Python 3.10+** installed
+- **Git** for repository cloning
+- **Audio drivers** for playback
+- At least **4GB RAM** recommended
 
-The project follows this directory structure:
-  ```
-      .
-      ├── dia/
-      ├── docker/
-      ├── example/
-      ├── .gitignore
-      ├── .python-version
-      ├── LICENSE
-      ├── README.md
-      ├── cli.py
-      ├── example_prompt.mp3
-      ├── experiment.py
-      ├── experiment2.py
-      ├── experiment3.py
-      ├── experiment4.py
-      ├── horizontal.png
-      ├── pyproject.toml
-      ├── test.py
-      └── uv.lock
-  ```
-  ---
-- `experiment4.py`: The main script to run the Gradio app  
-- `requirements.txt`: Lists all dependencies required for the project  
+---
 
-## Usage
-Run the Gradio app with:
+## ⚡ Quick Start
+
+### 1️⃣ **Clone Repository**
+```bash
+git clone https://github.com/Hanyaa-Technologies/Dia-by-nari-labs-Narration-model.git
+cd Dia-by-nari-labs-Narration-model
 ```
+
+### 2️⃣ **Environment Setup**
+
+Choose your preferred method:
+
+#### 🐍 **Option A: Using venv + pip**
+```bash
+# Create virtual environment
+python -m venv venv
+
+# Activate environment
+source venv/bin/activate        # 🐧 Linux/macOS
+# OR
+venv\Scripts\activate           # 🪟 Windows
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+#### 🐍 **Option B: Using conda**
+```bash
+# Create conda environment
+conda create -n dia-tts python=3.10 -y
+
+# Activate environment
+conda activate dia-tts
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### 3️⃣ **Launch Application**
+```bash
 python experiment4.py
 ```
+
+🎉 **That's it!** Your Gradio interface will open automatically in your default browser.
+
+---
+
+## 📁 Project Structure
+
+```
+📦 Dia-Narration-Model/
+├── 🎙️ dia/                    # Core TTS modules
+├── 🐳 docker/                 # Docker configuration
+├── 📝 example/                # Sample files & demos
+├── ⚙️ cli.py                  # Command line interface
+├── 🎵 example_prompt.mp3      # Sample audio prompt
+├── 🧪 experiment4.py          # Main Gradio application
+├── 📊 test.py                 # Testing utilities
+├── 🖼️ horizontal.png          # Project banner
+├── 📋 requirements.txt        # Python dependencies
+├── 📄 README.md              # This file
+├── ⚖️ LICENSE                # License information
+└── 🔒 pyproject.toml         # Project configuration
+```
+
+---
+
+## 🎯 Usage Guide
+
+### 🖥️ **Web Interface**
+
+1. **Launch the app**: Run `python experiment4.py`
+2. **Enter your script**: Use `[S1]` and `[S2]` tags for different speakers
+3. **Upload reference audio** (optional): For voice cloning
+4. **Adjust parameters**: Fine-tune CFG scale, temperature, etc.
+5. **Generate**: Click the magic button and listen!
+
+### 📝 **Script Format Example**
+
+```
+[S1] Welcome to our podcast! I'm excited to discuss today's topic.
+[S2] Thanks for having me! This is going to be a great conversation.
+[S1] Let's dive right in. What are your thoughts on...
+```
+
+### 🎚️ **Parameter Controls**
+
+| Parameter | Description | Recommended Range |
+|-----------|-------------|-------------------|
+| **CFG Scale** | Controls adherence to prompt | 1.0 - 3.0 |
+| **Temperature** | Output randomness | 0.7 - 1.2 |
+| **Top-p** | Nucleus sampling threshold | 0.8 - 0.95 |
+| **Seed** | Reproducibility control | Any integer |
+
+---
+
+## 🛠️ Advanced Configuration
+
+### 🎵 **Audio Settings**
+- **Sample Rate**: 24kHz (default)
+- **Bit Depth**: 16-bit
+- **Format**: WAV/MP3 compatible
+- **Chunk Size**: Automatically optimized
+
+### 💾 **Memory Optimization**
+- Automatic GPU/CPU detection
+- Efficient batch processing  
+- Memory-mapped audio loading
+- Smart caching system
+
+---
+
+## 🔧 Troubleshooting
+
+### Common Issues & Solutions
+
+#### 🚨 **"ModuleNotFoundError: No module named 'xxx'"**
+```bash
+pip install -r requirements.txt --upgrade
+```
+
+#### 🚨 **NLTK Data Missing**
+```python
+import nltk
+nltk.download('punkt')
+```
+
+#### 🚨 **CUDA Out of Memory**
+- Reduce chunk size in settings
+- Close other GPU-intensive applications
+- Try CPU-only mode
+
+#### 🚨 **Audio Quality Issues**
+- Check sample rate compatibility
+- Verify reference audio quality
+- Adjust CFG scale parameter
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Here's how you can help:
+
+1. 🍴 **Fork** the repository
+2. 🌟 **Create** a feature branch
+3. 💻 **Commit** your changes
+4. 📤 **Push** to your branch
+5. 🔄 **Create** a Pull Request
+
+### 📋 **Contribution Guidelines**
+- Follow PEP 8 coding standards
+- Add tests for new features
+- Update documentation
+- Be respectful and collaborative
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- **Nari Labs** for the incredible Dia TTS model
+- **Hugging Face** for the Transformers library
+- **Gradio** team for the amazing interface framework
+- **PyTorch** community for the deep learning foundation
+
+<div align="center">
+
+### 🌟 **Star this project if you found it helpful!** ⭐
+
+**Made with ❤️ by [Hanyaa Technologies](https://github.com/Hanyaa-Technologies)**
+
+</div>
